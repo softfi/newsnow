@@ -10,7 +10,7 @@ import 'package:flutter_web_browser/flutter_web_browser.dart';
 import 'package:hive/hive.dart';
 import 'package:html_unescape/html_unescape.dart';
 import 'package:jiffy/jiffy.dart';
-import 'package:launch_review/launch_review.dart';
+import 'package:launch_review_latest/launch_review_latest.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:reading_time/reading_time.dart';
@@ -113,7 +113,7 @@ class AppService {
 
   Future launchAppReview(context) async {
     final SettingsBloc sb = Provider.of<SettingsBloc>(context, listen: false);
-    LaunchReview.launch(androidAppId: sb.packageName, iOSAppId: Config.iOSAppID, writeReview: false);
+    LaunchReviewLatest.launch(androidAppId: sb.packageName, iOSAppId: Config.iOSAppID, writeReview: false);
     if (Platform.isIOS) {
       if (Config.iOSAppID == '000000') {
         openToast1('The iOS version is not available on the AppStore yet');

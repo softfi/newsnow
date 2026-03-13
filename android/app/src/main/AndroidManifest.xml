@@ -1,5 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.newsnoworg">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
   <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
@@ -28,7 +27,7 @@
 <!--    </queries>-->
 
    <application
-        android:label="NewsNow"
+        android:label="Amrit Ujala"
         android:icon="@mipmap/launcher_icon"
         android:usesCleartextTraffic="true">
         <activity

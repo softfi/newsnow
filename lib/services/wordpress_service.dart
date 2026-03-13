@@ -267,17 +267,29 @@ class WordPressService {
   Future<ConfigModel?> getConfigsFromAPI() async {
     ConfigModel? configs;
     try {
-      var response = await http.get(Uri.parse("${WpConfig.baseURL}/wp-json/newsfreak/configs"))
-      .timeout(const Duration(seconds: 10));
+      final url = "${WpConfig.baseURL}/wp-json/newsfreak/configs";
+      debugPrint('🌐 REQUEST: GET $url');
+
+      var response = await http.get(Uri.parse(url))
+          .timeout(const Duration(seconds: 10));
+
+      debugPrint('📡 STATUS CODE: ${response.statusCode}');
+      debugPrint('📦 RAW RESPONSE: ${response.body}');
+
       if (response.statusCode == 200) {
         var decodedData = jsonDecode(response.body) as Map<String, dynamic>;
+        debugPrint('✅ PARSED JSON: ${const JsonEncoder.withIndent('  ').convert(decodedData)}');
         configs = ConfigModel.fromJson(decodedData);
+        debugPrint('✅ CONFIG MODEL CREATED SUCCESSFULLY');
+      } else {
+        debugPrint('❌ ERROR RESPONSE BODY: ${response.body}');
       }
     } on TimeoutException catch(_) {
-      debugPrint('time out');
-    } catch (e) {
-      debugPrint('api error: $e');
-    } 
+      debugPrint('⏱️ TIMEOUT: Request exceeded 10 seconds for ${WpConfig.baseURL}');
+    } catch (e, stackTrace) {
+      debugPrint('💥 API ERROR: $e');
+      debugPrint('📋 STACK TRACE: $stackTrace');
+    }
     return configs;
   }
 

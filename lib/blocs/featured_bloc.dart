@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_controller.dart';
+import 'package:carousel_slider/carousel_controller.dart' as cc;
 import 'package:flutter/material.dart';
 import 'package:wordpress_app/services/wordpress_service.dart';
 import '../models/article.dart';
@@ -7,7 +7,7 @@ class FeaturedBloc extends ChangeNotifier {
   final List<Article> _articles = [];
   List<Article> get articles => _articles;
 
-  final CarouselController carouselController = CarouselController();
+  final cc.CarouselSliderControllerImpl carouselController = cc.CarouselSliderControllerImpl();
 
   bool _hasData = true;
   bool get hasData => _hasData;

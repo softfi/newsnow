@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:hive/hive.dart';
-import 'package:share/share.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:wordpress_app/blocs/ads_bloc.dart';
 import 'package:wordpress_app/blocs/config_bloc.dart';
 import 'package:wordpress_app/pages/article_details/post_date.dart';

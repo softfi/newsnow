@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Config {
   // App Name
-  static const appName = 'NewsNow';
+  static const appName = 'Amrit Ujala';
 
   //iOS App ID (Ignore this for Android)
   static const iOSAppID = '000000';

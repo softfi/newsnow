@@ -49,7 +49,7 @@ class Featured extends StatelessWidget {
           padding: const EdgeInsets.all(0),
           child: DotsIndicator(
             dotsCount: fb.articles.isEmpty ? 1 : fb.articles.length,
-            position: fb.pageIndex,
+            position: fb.pageIndex.toDouble(),
             decorator: DotsDecorator(
               activeColor: Theme.of(context).colorScheme.primary,
               color: Theme.of(context).colorScheme.secondary,

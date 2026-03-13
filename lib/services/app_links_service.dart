@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:uni_links/uni_links.dart';
+import 'package:app_links/app_links.dart';
 import 'package:wordpress_app/pages/future_article_details.dart';
 import 'package:wordpress_app/utils/next_screen.dart';
 
 class AppLinksService {
-  
+
   Future<void> initUniLinks(context) async {
     try {
-      final initialLink = await getInitialLink();
-      handleLinks(context, initialLink);
+      final appLinks = AppLinks();
+      final initialLink = await appLinks.getInitialLink();
+      handleLinks(context, initialLink?.toString());
     } on PlatformException {
       debugPrint('platform error');
     }

@@ -13,7 +13,7 @@ import '../models/user.dart';
 
 class AuthService {
   static var client = http.Client();
-  static final GoogleSignIn googleSignIn = GoogleSignIn();
+  static final GoogleSignIn googleSignIn = GoogleSignIn.instance;
   static final FacebookAuth facebookAuth = FacebookAuth.instance;
 
   static Future<UserModel?> loginWithEmail(String userName, String password) async {
@@ -115,7 +115,7 @@ class AuthService {
 
 
   static Future<UserModel?> signInWithGoogle() async {
-    final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
+    final GoogleSignInAccount? googleUser = await googleSignIn.authenticate();
     if (googleUser != null) {
       String username = googleUser.email.split("@").first;
       UserModel? userModel = await socialLogin(username, googleUser.email);

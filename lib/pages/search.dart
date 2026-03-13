@@ -1,4 +1,3 @@
-import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +15,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:wordpress_app/widgets/inline_ads.dart';
 import '../constants/constant.dart';
+import 'package:rive/rive.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -250,12 +250,11 @@ class _EmptySearchAnimation extends StatelessWidget {
             margin: const EdgeInsets.only(top: 50),
             height: 200,
             width: 200,
-            child: const FlareActor(
-              Config.searchAnimation,
+            child: RiveAnimation.asset(
+              Config.searchAnimation,    // make sure this is a .riv file now
               alignment: Alignment.center,
               fit: BoxFit.contain,
-              animation: "search",
-              //color: Theme.of(context).primaryColor.withOpacity(0.6),
+              animations: const ['search'],
             ),
           ),
         ),
