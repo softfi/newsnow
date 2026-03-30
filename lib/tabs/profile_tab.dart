@@ -193,7 +193,7 @@ class _SettingPageState extends State<SettingPage> with AutomaticKeepAliveClient
                           style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Theme.of(context).colorScheme.primary),
                         ).tr(),
                         trailing: const Icon(Feather.chevron_right),
-                        onTap: () => AppService().openLinkWithCustomTab(context, 'https://newsnow.org.in/privacy-policy/'),
+                        onTap: () => AppService().openLinkWithCustomTab(context, 'https://amritujala.com/privacy-policy/'),
                       ),
                       const _Divider(),
                       ListTile(
@@ -247,7 +247,7 @@ class _SettingPageState extends State<SettingPage> with AutomaticKeepAliveClient
                           style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Theme.of(context).colorScheme.primary),
                         ).tr(),
                         trailing: const Icon(Feather.chevron_right),
-                        onTap: () => AppService().openEmailSupport(context, configs.supportEmail),
+                        onTap: () => AppService().openLinkWithCustomTab(context, 'https://amritujala.com/contact/'),
                       ),
                       const _Divider(),
                       ListTile(

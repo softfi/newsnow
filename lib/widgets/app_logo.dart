@@ -15,9 +15,9 @@ class AppLogo extends StatelessWidget {
       image: AssetImage(
         !isDarkMode ? Config.logo : Config.logoDark,
       ),
-      height: height,
-      width: width,
-      fit: BoxFit.fill,
+      height: 42,
+      width: 180,
+      fit: BoxFit.cover,
     );
   }
 }

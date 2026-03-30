@@ -15,7 +15,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:wordpress_app/widgets/inline_ads.dart';
 import '../constants/constant.dart';
-import 'package:rive/rive.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -243,33 +242,50 @@ class _EmptySearchAnimation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Center(
-          child: Container(
-            margin: const EdgeInsets.only(top: 50),
-            height: 200,
-            width: 200,
-            child: RiveAnimation.asset(
-              Config.searchAnimation,    // make sure this is a .riv file now
-              alignment: Alignment.center,
-              fit: BoxFit.contain,
-              animations: const ['search'],
-            ),
+
+        const SizedBox(height: 50),
+
+        // 🔍 Icon Container
+        Container(
+          height: 140,
+          width: 140,
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.primary.withOpacity(0.08),
+            shape: BoxShape.circle,
+          ),
+          child: Icon(
+            Icons.search,
+            size: 70,
+            color: Theme.of(context).colorScheme.primary,
           ),
         ),
+
+        const SizedBox(height: 24),
+
+        // ✅ Title
         const Text(
           'search-for-contents',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, letterSpacing: -0.7, wordSpacing: 1),
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+            letterSpacing: -0.7,
+            wordSpacing: 1,
+          ),
         ).tr(),
-        const SizedBox(
-          height: 10,
-        ),
+
+        const SizedBox(height: 10),
+
+        // ✅ Description
         Text(
           'search-description',
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Theme.of(context).colorScheme.secondary),
-        ).tr()
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+            color: Theme.of(context).colorScheme.secondary,
+          ),
+        ).tr(),
       ],
     );
   }
